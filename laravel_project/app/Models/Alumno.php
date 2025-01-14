@@ -9,12 +9,7 @@ class Alumno extends Model
 {
     use HasFactory;
 
-    protected $table = 'alumnos';
-
-    protected $fillable = [
-        'nombre',
-        'email',
-    ];
+    protected $fillable = ['nombre', 'email'];
 
     public function notas()
     {
