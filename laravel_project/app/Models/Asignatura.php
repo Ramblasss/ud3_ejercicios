@@ -11,8 +11,8 @@ class Asignatura extends Model
 
     protected $fillable = ['nombre', 'descripcion'];
 
-    public function notas()
+    public function alumnos()
     {
-        return $this->hasMany(Nota::class);
+        return $this->belongsToMany(Alumno::class, 'alumno_asignatura');
     }
 }

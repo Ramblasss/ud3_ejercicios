@@ -7,16 +7,17 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up()
     {
-        Schema::create('perfiles', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');
-            $table->text('biografia')->nullable();
+            $table->string('titulo');
+            $table->text('contenido');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('perfiles');
+        Schema::dropIfExists('posts');
     }
 };

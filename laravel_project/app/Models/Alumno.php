@@ -11,8 +11,18 @@ class Alumno extends Model
 
     protected $fillable = ['nombre', 'email'];
 
-    public function notas()
+    public function asignaturas()
     {
-        return $this->hasMany(Nota::class);
+        return $this->belongsToMany(Asignatura::class, 'alumno_asignatura');
+    }
+
+    public function perfil()
+    {
+        return $this->hasOne(Perfil::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
